@@ -1,0 +1,149 @@
+.home-page { display: flex; flex-direction: column; gap: 32px; }
+
+.welcome-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: -8px;
+}
+.welcome-greeting {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px; font-weight: 700;
+  background: linear-gradient(135deg, #f0f0ff, #9090bb);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.welcome-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px; color: var(--text3); margin-top: 2px; letter-spacing: 0.3px;
+}
+.refresh-btn {
+  background: var(--surface2); border: 1px solid var(--border3);
+  border-radius: 50%; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text3); transition: all 0.2s;
+}
+.refresh-btn:hover { color: var(--neon-purple); border-color: var(--border); }
+
+/* Hero */
+.hero-banner {
+  position: relative; border-radius: 20px; overflow: hidden;
+  height: 200px; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.hero-bg-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: blur(2px) brightness(0.6); transform: scale(1.05);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(4,4,13,0.8) 0%, rgba(155,93,229,0.15) 50%, rgba(4,4,13,0.6) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 24px 24px; height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 6px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  color: var(--neon-cyan); letter-spacing: 2px;
+  background: rgba(0,245,212,0.1); border: 1px solid rgba(0,245,212,0.2);
+  border-radius: 99px; padding: 3px 10px; width: fit-content;
+}
+.hero-title {
+  font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: 900;
+  color: white; letter-spacing: 0.5px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hero-artist {
+  font-family: 'Rajdhani', sans-serif; font-size: 15px; color: rgba(240,240,255,0.7);
+}
+.hero-play-btn {
+  background: linear-gradient(135deg, #9b5de5, #00b4ff);
+  border: none; border-radius: 99px;
+  color: white; font-family: 'Orbitron', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  padding: 10px 20px; cursor: pointer; width: fit-content;
+  margin-top: 4px; transition: transform 0.2s;
+}
+.hero-play-btn:hover { transform: scale(1.04); }
+
+/* Mood */
+.mood-row { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.mood-row::-webkit-scrollbar { display: none; }
+.mood-chip {
+  flex-shrink: 0; padding: 8px 18px;
+  border: 1.5px solid; border-radius: 99px;
+  font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600;
+  color: var(--text2); cursor: pointer; transition: all 0.25s;
+  letter-spacing: 0.5px;
+}
+.mood-chip.active { color: var(--mood-color); box-shadow: 0 0 16px color-mix(in srgb, var(--mood-color) 30%, transparent); }
+
+/* Artists */
+.artist-card {
+  flex-shrink: 0; width: 90px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  cursor: pointer; padding: 4px;
+}
+.artist-avatar-wrap { position: relative; width: 72px; height: 72px; }
+.artist-avatar {
+  width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.08);
+}
+.artist-avatar-ring {
+  position: absolute; inset: -3px; border-radius: 50%;
+  background: conic-gradient(#9b5de5, #00b4ff, #f72585, #9b5de5);
+  z-index: -1; opacity: 0; transition: opacity 0.3s;
+}
+.artist-card:hover .artist-avatar-ring { opacity: 1; }
+.artist-name {
+  font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700;
+  color: var(--text2); text-align: center;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;
+}
+.artist-followers {
+  font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text3);
+  margin-top: -4px;
+}
+
+/* Developer Card */
+.dev-card {
+  position: relative; overflow: hidden;
+  border-radius: 20px; padding: 24px;
+  border: 1px solid rgba(155,93,229,0.2);
+  cursor: pointer;
+  background: rgba(10,10,28,0.8);
+  backdrop-filter: blur(20px);
+}
+.dev-card-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(155,93,229,0.08), rgba(0,180,255,0.05), rgba(247,37,133,0.05));
+}
+.dev-card-inner {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: 16px;
+}
+.dev-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, #9b5de5, #00b4ff);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: white;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(155,93,229,0.4);
+}
+.dev-name {
+  font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 700;
+  color: var(--text); letter-spacing: 1px;
+}
+.dev-handle {
+  font-family: 'Space Mono', monospace; font-size: 11px; color: var(--neon-purple); margin-top: 4px;
+}
+.dev-brand {
+  font-family: 'Rajdhani', sans-serif; font-size: 13px; color: var(--text3); margin-top: 4px;
+}
+.dev-tag {
+  position: absolute; top: 16px; right: 16px;
+  font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px;
+  color: var(--neon-cyan);
+  background: rgba(0,245,212,0.08); border: 1px solid rgba(0,245,212,0.15);
+  border-radius: 6px; padding: 3px 8px;
+}
